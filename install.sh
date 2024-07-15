@@ -2,6 +2,8 @@
 
 source ~/dotfiles/library.sh
 
+install_yay
+
 # _installPackagesPacman "rsync" "gum" "figlet" "python" "git";
 _installPackagesPacman "rsync" "gum" "figlet" "python" "git" "stow";
 

@@ -1,3 +1,18 @@
+install_yay() {
+    if ! command -v yay &> /dev/null; then
+        echo ":: yay not found, installing yay..."
+        sudo pacman -S --noconfirm --needed base-devel git
+        git clone https://aur.archlinux.org/yay.git /tmp/yay
+        cd /tmp/yay
+        makepkg -si --noconfirm
+        cd ~
+        rm -rf /tmp/yay
+        echo ":: yay installed successfully."
+    else
+        echo ":: yay is already installed."
+    fi
+}
+
 _installSymLink() {
     name="$1"
     symlink="$2";
