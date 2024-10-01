@@ -24,9 +24,9 @@ _installPackagesPacman "${packagesPacman[@]}"
 _installPackagesYay "${packagesYay[@]}"
 
 # Stow configurations
-stow -d ~/dotfiles/config -t ~ awesome
+#stow -d ~/dotfiles/config -t ~ awesome
 # stow -d ~/dotfiles/config -t ~ alacritty
-stow -d ~/dotfiles/home -t ~ .bashrc
+#stow -d ~/dotfiles/home -t ~ .bashrc
 # stow -d ~/dotfiles/bin -t ~/bin
 
 echo "All packages have been installed."

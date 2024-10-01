@@ -66,13 +66,31 @@ _isInstalledYay() {
     return; #false
 }
 
+_isInstalledPacmanFix() {
+	pacman -Qi "$1" &> /dev/null
+	if [ $? -eq 0 ]; then
+		echo 0
+	else
+ 		echo 1
+	fi
+}
+
+_isInstalledYayFix() {
+	yay -Qi "$1" &> /dev/null
+	if [ $? -eq 0 ]; then
+		echo 0
+	else
+		echo 1
+	fi
+}
+
 # ------------------------------------------------------
 # Function Install all package if not installed
 # ------------------------------------------------------
 _installPackagesPacman() {
     toInstall=();
     for pkg; do
-        if [[ $(_isInstalledPacman "${pkg}") == 0 ]]; then
+        if [[ $(_isInstalledPacmanFix "${pkg}") == 0 ]]; then
             echo ":: ${pkg} is already installed.";
             continue;
         fi;
@@ -91,7 +109,7 @@ _installPackagesPacman() {
 _installPackagesYay() {
     toInstall=();
     for pkg; do
-        if [[ $(_isInstalledYay "${pkg}") == 0 ]]; then
+        if [[ $(_isInstalledYayFix "${pkg}") == 0 ]]; then
             echo ":: ${pkg} is already installed.";
             continue;
         fi;
