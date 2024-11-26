@@ -1,43 +1,44 @@
+# Packages from the official Pacman repository
 packagesPacman=(
-    "awesome"
-    "lua"
-    "luarocks"
-    "lgi"
-    "xorg-server"
-    "xorg-xinit"
-    "picom"  # Optional, for compositing effects
-    "lxappearance"  # Optional, for GTK theme configuration
-    "arandr"  # Optional, for managing screen layouts
-    "xbacklight"  # For brightness control
-    "pavucontrol"  # For audio control
-    "rofi"  # Application launcher
-    "thunar"  # File manager
-    "evolution"  # Mail client
+    "awesome"  # Highly configurable window manager for Xorg
+    "lua"  # Scripting language used by Awesome WM
+    "luarocks"  # Package manager for Lua modules
+    "xorg-server"  # Xorg display server
+    "xorg-xinit"  # Tool to initialize an Xorg session
+    "xorg-xkill" # Kill GUI applications by clicking
+    "picom"  # Optional, for window compositing effects (transparency, shadows)
+    "lxappearance"  # Optional, for configuring GTK themes
+    "arandr"  # Optional, graphical tool for managing screen layouts
+    "pavucontrol"  # PulseAudio Volume Control (PipeWire-compatible)
+    "rofi"  # Application launcher and dmenu replacement
+    "thunar"  # Lightweight file manager
+    "evolution"  # Email and calendar client
     "alacritty"  # Terminal emulator
-    "spotify"  # Music player
+    "spotify"  # Music streaming client (AUR may be required)
     "firefox"  # Web browser
-    "dmenu"  # Application launcher
-    "htop"  # System monitor
-    "unclutter"  # Hides mouse cursor
-    "xkill"  # Kill processes
-    "xfce4-taskmanager"  # Task manager
-    "setxkbmap"  # Keyboard map changer
-    "numlockx"  # Numlock manager
-    "volumeicon"  # Volume control icon
-    "nitrogen"  # Wallpaper manager
-    "nm-applet"  # Network manager applet
-    "xfce4-power-manager"  # Power manager
-    "blueberry"  # Bluetooth manager
-    "polkit-gnome"  # Policy kit authentication agent
-    "dex"  # Desktop entry execution
+    "dmenu"  # Minimalistic application launcher
+    "htop"  # Interactive system monitor
+    "unclutter"  # Hides mouse cursor after inactivity
+    "xfce4-taskmanager"  # Graphical task manager
+    "numlockx"  # Turns on NumLock in X11 sessions
+    "volumeicon"  # Lightweight volume control icon for the system tray
+    "nitrogen"  # Wallpaper manager for Xorg
+    "network-manager-applet"  # Network Manager applet for system tray
+    "xfce4-power-manager"  # Power manager for laptops and desktops
+    "blueberry"  # GUI Bluetooth manager
+    "polkit-gnome"  # PolicyKit authentication agent
+    "dex"  # Desktop entry execution utility (runs .desktop files at startup)
 )
 
+# Packages from the AUR (requires Yay or similar AUR helper)
 packagesYay=(
     "inkscape"  # Vector graphics editor
-    "virtualbox"  # Virtual machine
-    "arcolinux-logout"  # Logout script
-    "menubar"  # Application menubar
+    "virtualbox"  # Virtual machine manager
+    "arcolinux-logout"  # Logout script and menu for ArcoLinux
+    "lain-git"  # Extensions for Awesome WM (e.g., widgets, layouts)
+    "awesome-freedesktop-git"  # Freedesktop.org menu integration for Awesome WM
+    "menubar"  # Application menubar for Awesome WM
     "unetbootin"  # Bootable USB creator
-    "peek"  # Screen recorder
-    "pamac-aur"  # Pamac AUR frontend
+    "peek"  # GIF and video screen recorder
+    "pamac-aur"  # GUI package manager with AUR support
 )
