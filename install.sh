@@ -14,6 +14,17 @@ _installPackagesYay "${packagesYay[@]}"
 allPackagesPacman+=("${packagesPacman[@]}")
 allPackagesYay+=("${packagesYay[@]}")
 
+# Ask to install Wayland-specific packages
+read -p "Do you want to install Wayland-specific packages? [y/N]: " installWayland
+if [[ "$installWayland" =~ ^[Yy]$ ]]; then
+    echo "Installing Wayland-specific packages..."
+    source ~/dotfiles/packages/wayland-packages.sh
+    _installPackagesPacman "${packagesPacman[@]}"
+    _installPackagesYay "${packagesYay[@]}"
+    allPackagesPacman+=("${packagesPacman[@]}")
+    allPackagesYay+=("${packagesYay[@]}")
+fi
+
 # Ask to install Hyprland-specific packages
 read -p "Do you want to install Hyprland-specific packages? [y/N]: " installHyprland
 if [[ "$installHyprland" =~ ^[Yy]$ ]]; then

@@ -19,11 +19,18 @@ packagesPacman=(
     "pipewire-alsa"      # ALSA compatibility layer for PipeWire
     "pipewire-jack"      # JACK compatibility layer for PipeWire
     "wireplumber"        # Session manager for PipeWire
-    "gdm"               # Simple Desktop Display Manager (login screen)
+    "gdm"                # Simple Desktop Display Manager (login screen)
     "gnome-tweaks"       # Advanced GTK/GNOME configuration tool
     "gnome-themes-extra" # Extra themes for GNOME
     "gnome-keyring"      # GNOME password and secret management
     "libsecret"          # Library for accessing passwords and secrets
+    "ttf-dejavu"         # Popular sans-serif font
+    "ttf-font-awesome"   # Font Awesome icons
+    "noto-fonts"         # Multi-language font support
+    "htop"               # Terminal-based process viewer
+    "btop"               # Advanced system resource monitor
+    "rsync"              # File synchronization and backup tool
+    "gtk-engine-murrine" # GTK theme engine for compatibility with older themes
 )
 
 # Packages from the AUR (requires Yay or similar AUR helper)
@@ -37,4 +44,5 @@ packagesYay=(
     "heroku-cli"                  # Command-line interface for Heroku
     "spotify"                     # Spotify client
     "ngrok"                       # Creates secure tunnels to localhost
+    "nerd-fonts-mononoki"         # Mononoki Nerd Font for programming and terminal use
 )

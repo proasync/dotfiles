@@ -17,8 +17,6 @@ packagesPacman=(
     "spotify"                   # Music streaming client (AUR may be required)
     "firefox"                   # Web browser
     "dmenu"                     # Minimalistic application launcher
-    "htop"                      # Interactive system monitor
-    "btop"                      # Resource monitor
     "unclutter"                 # Hides mouse cursor after inactivity
     "xfce4-taskmanager"         # Graphical task manager
     "numlockx"                  # Turns on NumLock in X11 sessions

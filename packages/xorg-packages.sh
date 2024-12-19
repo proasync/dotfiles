@@ -10,6 +10,8 @@ packagesPacman=(
     "network-manager-applet"  # Network Manager applet for system tray
     "dex"                   # Desktop entry execution utility (runs .desktop files at startup)
     "rofi"                  # Application launcher and dmenu replacement
+    "xsettingsd"            # X settings daemon for non-GNOME setups
+    "picom"                     # Optional, for window compositing effects (transparency, shadows)
 )
 
 # Packages from the AUR (requires Yay or similar AUR helper)
