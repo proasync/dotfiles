@@ -1,0 +1,42 @@
+{
+    "layer": "top",
+    "modules-left": ["workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["network", "volume", "battery", "cpu", "memory", "tray"],
+
+    "workspaces": {
+        "format": "{icon} {name}",
+        "all-outputs": true
+    },
+
+    "clock": {
+        "format": "{:%Y-%m-%d %H:%M:%S}"
+    },
+
+    "network": {
+        "format": "{ifname} {ip4}"
+    },
+
+    "volume": {
+        "format": "{icon} {volume}%"
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}% {timeToEmpty} {status}",
+        "tooltip": false
+    },
+
+    "cpu": {
+        "format": "CPU: {usage}%",
+        "max-length": 20
+    },
+
+    "memory": {
+        "format": "RAM: {used}/{total} GB",
+        "tooltip": false
+    },
+
+    "tray": {
+        "icon-size": 16
+    }
+}

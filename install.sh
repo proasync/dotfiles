@@ -88,4 +88,16 @@ if [[ "$stowHome" =~ ^[Yy]$ ]]; then
     echo "Stow operation completed."
 fi
 
+# Ask to configure Caps as a modifier
+read -p "Do you want to configure Caps as a modifier with the current configuration? [y/N]: " configureCaps
+if [[ "$configureCaps" =~ ^[Yy]$ ]]; then
+    echo "Configuring Caps as a modifier..."
+    if [[ -f ~/dotfiles/scripts/caps-mod.sh ]]; then
+        sudo bash ~/dotfiles/scripts/caps-mod.sh
+        echo "Caps modifier configuration applied successfully!"
+    else
+        echo "Caps modifier script not found at ~/dotfiles/scripts/caps-mod.sh. Skipping."
+    fi
+fi
+
 echo "Installation process complete. Check install_errors.log for failures."

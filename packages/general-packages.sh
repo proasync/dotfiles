@@ -1,36 +1,37 @@
 # Packages from the official Pacman repository
 packagesPacman=(
+    "alacritty"          # Lightweight GPU-accelerated terminal emulator
     "archlinux-keyring"  # Ensures Arch's package signing keys are up to date
-    "yarn"               # Package manager for Node.js
-    "nvm"                # Node Version Manager for managing Node.js versions
     "brightnessctl"      # Controls screen brightness
+    "btop"               # Advanced system resource monitor
+    "chromium"           # Open-source web browser (basis for Google Chrome)
+    "dbeaver"            # Universal database client
+    "gdm"                # Simple Desktop Display Manager (login screen)
     "gimp"               # GNU Image Manipulation Program for photo editing
     "git"                # Version control system
-    "postgresql"         # Relational database system
-    "alacritty"          # Lightweight GPU-accelerated terminal emulator
-    "chromium"           # Open-source web browser (basis for Google Chrome)
-    "snapd"              # Snap package manager for installing Snap packages
-    "stow"               # Symlink farm manager for managing dotfiles
-    "dbeaver"            # Universal database client
+    "gnome-keyring"      # GNOME password and secret management
+    "gnome-themes-extra" # Extra themes for GNOME
+    "gnome-tweaks"       # Advanced GTK/GNOME configuration tool
+    "gtk-engine-murrine" # GTK theme engine for compatibility with older themes
+    "htop"               # Terminal-based process viewer
     "imagemagick"        # Command-line image manipulation tool
+    "keyd"               # Daemon for managing keyboard shortcuts
+    "libsecret"          # Library for accessing passwords and secrets
     "neovim"             # Modernized Vim text editor
+    "noto-fonts"         # Multi-language font support
+    "nvm"                # Node Version Manager for managing Node.js versions
     "pipewire"           # Modern audio and video server (replaces PulseAudio)
-    "pipewire-pulse"     # PulseAudio compatibility layer for PipeWire
     "pipewire-alsa"      # ALSA compatibility layer for PipeWire
     "pipewire-jack"      # JACK compatibility layer for PipeWire
-    "wireplumber"        # Session manager for PipeWire
-    "gdm"                # Simple Desktop Display Manager (login screen)
-    "gnome-tweaks"       # Advanced GTK/GNOME configuration tool
-    "gnome-themes-extra" # Extra themes for GNOME
-    "gnome-keyring"      # GNOME password and secret management
-    "libsecret"          # Library for accessing passwords and secrets
+    "pipewire-pulse"     # PulseAudio compatibility layer for PipeWire
+    "postgresql"         # Relational database system
+    "rsync"              # File synchronization and backup tool
+    "snapd"              # Snap package manager for installing Snap packages
+    "stow"               # Symlink farm manager for managing dotfiles
     "ttf-dejavu"         # Popular sans-serif font
     "ttf-font-awesome"   # Font Awesome icons
-    "noto-fonts"         # Multi-language font support
-    "htop"               # Terminal-based process viewer
-    "btop"               # Advanced system resource monitor
-    "rsync"              # File synchronization and backup tool
-    "gtk-engine-murrine" # GTK theme engine for compatibility with older themes
+    "wireplumber"        # Session manager for PipeWire
+    "yarn"               # Package manager for Node.js
 )
 
 # Packages from the AUR (requires Yay or similar AUR helper)
