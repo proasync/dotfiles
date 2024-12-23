@@ -32,6 +32,8 @@ packagesPacman=(
     "ttf-font-awesome"   # Font Awesome icons
     "wireplumber"        # Session manager for PipeWire
     "yarn"               # Package manager for Node.js
+    "thunar"             # Lightweight file manager
+    "alacritty"          # Terminal emulator
 )
 
 # Packages from the AUR (requires Yay or similar AUR helper)

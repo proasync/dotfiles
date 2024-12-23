@@ -11,9 +11,7 @@ packagesPacman=(
     "arandr"                    # Optional, graphical tool for managing screen layouts
     "pavucontrol"               # PulseAudio Volume Control (PipeWire-compatible)
     "rofi"                      # Application launcher and dmenu replacement
-    "thunar"                    # Lightweight file manager
     "evolution"                 # Email and calendar client
-    "alacritty"                 # Terminal emulator
     "spotify"                   # Music streaming client (AUR may be required)
     "firefox"                   # Web browser
     "dmenu"                     # Minimalistic application launcher
