@@ -7,10 +7,10 @@
 
 export HISTCONTROL=ignoreboth:erasedups
 
-# Make nano the default editor
+# Make Vim the default editor
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='vim'
+export VISUAL='vim'
 
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
