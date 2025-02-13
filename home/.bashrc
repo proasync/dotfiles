@@ -112,3 +112,6 @@ source ~/.nvm/nvm.sh
 neofetch
 
 LIBVA_DRIVER_NAME=iHD
+
+# Surpress VS code warnings (only activate when modified vs code styles)
+# alias code="code --disable-features=IntegrityCheck"
