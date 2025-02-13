@@ -111,3 +111,4 @@ source ~/.nvm/nvm.sh
 # install neofetch
 neofetch
 
+LIBVA_DRIVER_NAME=iHD

@@ -2,6 +2,8 @@
 
 source ~/dotfiles/library.sh
 
+install_yay
+
 # Track all packages for final verification
 allPackagesPacman=()
 allPackagesYay=()
