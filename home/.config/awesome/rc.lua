@@ -38,6 +38,7 @@ local hotkeys_popup                  = require("awful.hotkeys_popup").widget
 require("awful.hotkeys_popup.keys")
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local dpi      = require("beautiful.xresources").apply_dpi
+local hostname = io.popen("uname -n"):read("*l")
 
 
 
@@ -78,7 +79,9 @@ end
 
 run_once({ "unclutter -root" }) -- entries must be comma-separated
 
--- {{{ Variable definitions
+-- Load external configuration files
+local home_dir = os.getenv("HOME")
+local config_dir = home_dir .. "/.config/awesome/"
 
 local themes = {
     "powerarrow-dark", --1
@@ -104,8 +107,7 @@ local browser3                     = "firefox"
 local editor                       = os.getenv("EDITOR") or "nano"
 local editorgui                    = "code"
 local filemanager                  = "thunar"
--- local mailclient                   = "evolution"
-local mediaplayer                  = "spotify"
+local mailclient                   = "evolution"
 local terminal                     = "alacritty"
 -- local terminal          = "urxvt"
 -- local virtualmachine    = "virtualbox"
@@ -139,26 +141,7 @@ awful.layout.layouts               = {
     --lain.layout.termfair.center,
 }
 
--- local tags  = {{ "1", "2", "3", "4", "5", "6", "7", "8", "9" },{  "➊", "➋", "➌", "➍", "➎", "➏", "➐", "➑", "➒" },{  "➊", "➋", "➌", "➍", "➎", "➏", "➐", "➑", "➒" }}
--- local i = 0
--- for s in screen do
---     i = i + 1
---     print(screen)
---     awful.tag(
---         tags[i],
---   s,
---   awful.layout.layouts[1]
--- )
--- end
-awful.util.tagnames                = {}
 awful.util.tagnames                = { "➊", "➋", "➌", "➍", "➎", "➏", "➐", "➑", "➒" }
---awful.util.tagnames = {  "➊", "➋", "➌", "➍", "➎", "➏", "➐", "➑", "➒", "➓" }
---awful.util.tagnames = { "⠐", "⠡", "⠲", "⠵", "⠻", "⠿" }
---awful.util.tagnames = { "⌘", "♐", "⌥", "ℵ" }
--- awful.util.tagnames = { "www", "edit", "gimp", "inkscape", "music" }
--- awful.util.tagnames = { "www", "edit", "gimp", "inkscape", "music","foo","bar","baz" }
--- Use this : https://fontawesome.com/cheatsheet
--- awful.util.tagnames = { "", "", "", "", "" }
 awful.layout.suit.tile.left.mirror = true
 
 
@@ -251,20 +234,6 @@ awful.util.mymainmenu = freedesktop.menu.build({
     }
 })
 
--- {{{ Screen
--- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)a screen's geometry changes (e.g. different resolution)
--- screen.connect_signal("property::geometry", function(s)
---     -- Wallpaper
---     if beautiful.wallpaper then
---         local wallpaper = beautiful.wallpaper
---         -- If wallpaper is a function, call it with the screen
---         if type(wallpaper) == "function" then
---             wallpaper = wallpaper(s)
---         end
---         gears.wallpaper.maximized(wallpaper, s, true)
---     end
--- end)
-
 -- No borders when rearranging only 1 non-floating or maximized client
 screen.connect_signal("arrange", function(s)
     local only_one = #s.tiled_clients == 1
@@ -276,6 +245,7 @@ screen.connect_signal("arrange", function(s)
         end
     end
 end)
+
 --Create a wibox for each screen and add it
 awful.screen.connect_for_each_screen(function(s)
     beautiful.at_screen_connect(s)
@@ -306,13 +276,6 @@ end
 globalkeys = my_table.join(
 
 -- {{{ Personal keybindings
-
-
--- Below kept for reference
---[[ awful.key({ }, "F12", function () awful.util.spawn( "xfce4-terminal --drop-down" ) end,
-		{description = "dropdown terminal" , group = "function keys"}),
-    awful.key({ modkey }, "F12", function () awful.util.spawn( "rofi -show run" ) end,
-        {description = "rofi" , group = "function keys" }), ]]
 
 -- super + ...
     awful.key({ modkey }, "space", function() kbdcfg.switch() end),
@@ -742,163 +705,6 @@ clientbuttons = gears.table.join(
 root.keys(globalkeys)
 -- }}}
 
-
-
--- {{{ Rules
--- Rules to apply to new clients (through the "manage" signal).
-awful.rules.rules = {
-    -- All clients will match this rule.
-    {
-        rule = {},
-        properties = {
-            border_width = beautiful.border_width,
-            border_color = beautiful.border_normal,
-            focus = awful.client.focus.filter,
-            raise = true,
-            keys = clientkeys,
-            buttons = clientbuttons,
-            screen = awful.screen.preferred,
-            placement = awful.placement.no_overlap + awful.placement.no_offscreen,
-            size_hints_honor = false
-        }
-    },
-
-    -- Titlebars
-    {
-        rule_any = { type = { "dialog", "normal" } },
-        properties = { titlebars_enabled = false }
-    },
-
-    -- Used as reference: Set applications to always map on the tag 5 on screen 1.
-    --{ rule = { class = "Meld" },
-    --properties = { screen = 1, tag = awful.util.tagnames[5] , switchtotag = true  } },
-
-
-    -- Set applications to be maximized at startup.
-    -- find class or role via xprop command
-
-    {
-        rule = { class = editorgui },
-        properties = { maximized = true }
-    },
-
-    {
-        rule = { class = "Geany" },
-        properties = { maximized = false, floating = false }
-    },
-
-    {
-        rule = { class = "Gimp*", role = "gimp-image-window" },
-        properties = { maximized = true }
-    },
-
-    {
-        rule = { class = "Gnome-disks" },
-        properties = { maximized = true }
-    },
-
-    {
-        rule = { class = "inkscape" },
-        properties = { maximized = true }
-    },
-
-    {
-        rule = { class = mediaplayer },
-        properties = { maximized = true }
-    },
-
-    {
-        rule = { class = "Vlc" },
-        properties = { maximized = true }
-    },
-
-    {
-        rule = { class = "VirtualBox Manager" },
-        properties = { maximized = true }
-    },
-
-    {
-        rule = { class = "VirtualBox Machine" },
-        properties = { maximized = true }
-    },
-
-    {
-        rule = { class = "Vivaldi-stable" },
-        properties = { maximized = false, floating = false }
-    },
-
-    {
-        rule = { class = "Vivaldi-stable" },
-        properties = { callback = function(c) c.maximized = false end }
-    },
-
-    {
-        rule = { class = "Xfce4-settings-manager" },
-        properties = { floating = false }
-    },
-    {
-        rule = { class = "libreoffice-writer" },
-        properties = { floating = false, maximized = false }
-    },
-
-    -- Floating clients.
-    {
-        rule_any = {
-            instance = {
-                "DTA",   -- Firefox addon DownThemAll.
-                "copyq", -- Includes session name in class.
-            },
-            class = {
-                "Arandr",
-                "Arcolinux-welcome-app.py",
-                "Blueberry",
-                "Galculator",
-                "Gnome-font-viewer",
-                "Gpick",
-                "Imagewriter",
-                "Font-manager",
-                "Kruler",
-                "MessageWin", -- kalarm.
-                "arcolinux-logout",
-                "Peek",
-                "Skype",
-                "System-config-printer.py",
-                "Sxiv",
-                "Unetbootin.elf",
-                "Wpa_gui",
-                "pinentry",
-                "veromix",
-                "xtightvncviewer",
-                "Xfce4-terminal" },
-
-            name = {
-                "Event Tester", -- xev.
-            },
-            role = {
-                "AlarmWindow", -- Thunderbird's calendar.
-                "pop-up",      -- e.g. Google Chrome's (detached) Developer Tools.
-                "Preferences",
-                "setup",
-            }
-        },
-        properties = { floating = true }
-    },
-
-    -- Floating clients but centered in screen
-    {
-        rule_any = {
-            class = {
-                "Polkit-gnome-authentication-agent-1"
-            },
-        },
-        properties = { floating = true },
-        callback = function(c)
-            awful.placement.centered(c, nil)
-        end
-    }
-}
--- }}}
-
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function(c)
@@ -990,7 +796,20 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- }}}
 
+if hostname == "work-desktop" then
+    dofile(config_dir .. "configs/work-desktop/rules.lua")
+    dofile(config_dir .. "configs/work-desktop/autostart.lua")
+    awful.spawn.with_shell("$HOME/.config/awesome/configs/work-desktop/screensetup.sh")
+    -- sleep 1 might be needed to wait for the screens to recognize
+    -- awful.spawn.with_shell("sleep 1; $HOME/.config/awesome/configs/work-desktop/screensetup.sh")
+elseif hostname == "work-laptop" then
+    dofile(config_dir .. "configs/work-laptop/rules.lua")
+else
+    dofile(config_dir .. "configs/default/rules.lua")
+    dofile(config_dir .. "configs/default/autostart.lua")
+    awful.spawn.with_shell("~/.config/awesome/configs/default/screensetup.sh")
+end
+
 -- Autostart applications
-awful.spawn.with_shell("~/.config/awesome/autostart.sh")
-awful.spawn.with_shell("~/.config/awesome/screensetup.sh")
+
 awful.spawn.with_shell("picom -b --config  $HOME/.config/awesome/picom.conf")
