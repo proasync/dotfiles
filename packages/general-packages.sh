@@ -6,7 +6,7 @@ packagesPacman=(
     "btop"               # Advanced system resource monitor
     "chromium"           # Open-source web browser (basis for Google Chrome)
     "dbeaver"            # Universal database client
-    "gdm"                # Simple Desktop Display Manager (login screen)
+    #"gdm"                # Simple Desktop Display Manager (login screen)
     "gimp"               # GNU Image Manipulation Program for photo editing
     "git"                # Version control system
     "gnome-keyring"      # GNOME password and secret management
@@ -27,22 +27,19 @@ packagesPacman=(
     "postgresql"         # Relational database system
     "rsync"              # File synchronization and backup tool
     "snapd"              # Snap package manager for installing Snap packages
-    "stow"               # Symlink farm manager for managing dotfiles
+    #"stow"               # Symlink farm manager for managing dotfiles (replaced by Home manager)
     "ttf-dejavu"         # Popular sans-serif font
     "ttf-font-awesome"   # Font Awesome icons
     "wireplumber"        # Session manager for PipeWire
     "yarn"               # Package manager for Node.js
     "thunar"             # Lightweight file manager
-    "alacritty"          # Terminal emulator
 )
 
 # Packages from the AUR (requires Yay or similar AUR helper)
 packagesYay=(
-    "nvm"                         # Node Version Manager (AUR version)
     "teams-for-linux"             # Microsoft Teams client for Linux
     "visual-studio-code-bin"      # Binary release of Microsoft's VS Code editor
     "google-chrome"               # Google Chrome browser
-    "openssl"                     # SSL/TLS cryptography library
     "hollywood"                   # Terminal Hollywood hacking effect
     "heroku-cli"                  # Command-line interface for Heroku
     "spotify"                     # Spotify client

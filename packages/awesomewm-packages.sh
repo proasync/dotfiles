@@ -12,7 +12,6 @@ packagesPacman=(
     "pavucontrol"               # PulseAudio Volume Control (PipeWire-compatible)
     "rofi"                      # Application launcher and dmenu replacement
     "evolution"                 # Email and calendar client
-    "spotify"                   # Music streaming client (AUR may be required)
     "firefox"                   # Web browser
     "dmenu"                     # Minimalistic application launcher
     "unclutter"                 # Hides mouse cursor after inactivity
@@ -39,5 +38,5 @@ packagesYay=(
     "menubar"                   # Application menubar for Awesome WM
     "unetbootin"                # Bootable USB creator
     "peek"                      # GIF and video screen recorder
-"pamac-aur"                     # GUI package manager with AUR support
+#   "pamac-aur"                     # GUI package manager with AUR support
 )
